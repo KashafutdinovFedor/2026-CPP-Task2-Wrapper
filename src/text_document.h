@@ -11,7 +11,8 @@ public:
 
     std::string set_text(const std::string& text);
 
-    [[nodiscard]] std::string text() const;
+    [[nodiscard]] const std::string& text() const;
+
     std::string replace_word(const std::string& word, const std::string& replacement);
 
     [[nodiscard]] std::string find_phrase(const std::string& phrase) const;

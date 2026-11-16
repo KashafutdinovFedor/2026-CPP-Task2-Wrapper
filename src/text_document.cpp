@@ -8,6 +8,7 @@
 
 namespace {
 
+
 struct Range {
     std::size_t begin;
     std::size_t end;
@@ -34,6 +35,7 @@ bool is_closing(char symbol) {
     return symbol == '"' || symbol == '\'' || symbol == ')' || symbol == ']';
 }
 
+
 bool is_word_char(const std::string& text, std::size_t index) {
     if (is_alnum(text[index])) {
         return true;
@@ -51,6 +53,7 @@ bool starts_word(const std::string& text, std::size_t index) {
 bool ends_word(const std::string& text, std::size_t index) {
     return index >= text.size() || !is_word_char(text, index);
 }
+
 
 bool matches_at(const std::string& text, std::size_t position, const std::string& pattern) {
     if (text.compare(position, pattern.size(), pattern) != 0) {
@@ -118,7 +121,7 @@ std::string normalize_spaces(const std::string& text, Range range) {
     return result;
 }
 
-}  
+} 
 
 TextDocument::TextDocument(std::string text) : text_(std::move(text)) {}
 
@@ -127,7 +130,7 @@ std::string TextDocument::set_text(const std::string& text) {
     return text_;
 }
 
-std::string TextDocument::text() const {
+const std::string& TextDocument::text() const {
     return text_;
 }
 
